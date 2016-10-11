@@ -90,11 +90,14 @@
         </div>
 
         <!--Section: About-->
-        <section class="text-xs-center wow bounceIn" data-wow-delay="0.2s">
+        <section class="text-xs-center wow bounceIn row">
+          <img src="img/profile_pic.jpg" style="height:200px, width:200px" class="col-md-3"></img>
+          <section style="margin-top:30px" class="text-xs-center wow bounceIn col-md-9" data-wow-delay="0.2s">
 
-            <p>Hi, my name is Jake. I live in SF, went to the University of Michigan and graduated with a BA in Informatics.  I am a Software Developer in SF at a small startup.</p>
-            <p>I enjoy working on side projects.  Recently I have done a lot of work with React, Redux and Node.  When I am not coding, I love teaching, golf, biking, hiking, running and swimming!</p>
+              <p>Hi, my name is Jake. I live in SF, went to the University of Michigan and graduated with a BA in Informatics.  I am a Software Developer in SF at a small startup.</p>
+              <p>I enjoy working on side projects.  Recently I have done a lot of work with React, Redux and Node.  When I am not coding, I love teaching, golf, biking, hiking, running and swimming!</p>
 
+          </section>
         </section>
         <!--Section: About-->
 
@@ -242,7 +245,7 @@
 
                 <!--Second column-->
                 <div class="col-md-4">
-                    <ul class="text-xs-center">
+                    <ul style="margin-top: 30px" class="text-xs-center">
                         <li class="wow fadeInUp" data-wow-delay="0.2s"><i class="fa fa-map-marker"></i>
                             <p>San Francisco, CA, 94110, USA</p>
                         </li>
@@ -390,7 +393,9 @@
 
             var var_mapoptions = {
                 center: var_location,
-                zoom: 10
+                zoom: 10,
+                scrollwheel: false,
+                draggable: false
             };
 
             var var_marker = new google.maps.Marker({
@@ -402,6 +407,12 @@
             var var_map = new google.maps.Map(document.getElementById("map-container"),
                 var_mapoptions);
 
+            var_map.addListener('click', function(event){
+              this.setOptions({scrollwheel:true, draggable: true});
+            });
+            var_map.addListener('mouseout', function(event){
+             this.setOptions({scrollwheel:false});
+            });
             var_marker.setMap(var_map);
 
         }
