@@ -5,9 +5,6 @@
 
 }
 
-#strava {
-    height:160px;
-}
 
 html,
 body,
@@ -59,4 +56,8 @@ footer.page-footer {
     font-size: 2.5rem;
     margin-bottom: 1rem;
     color: #1C2331;
+}
+
+#strava {
+    height:160px;
 }
